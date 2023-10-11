@@ -1,0 +1,8 @@
+{
+    "comilerOptions": {
+        "baseUrl" : ".",
+        "paths": {
+            "~/*": ["src/*"]
+        }
+    }
+}
