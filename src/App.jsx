@@ -5,7 +5,7 @@ import { DefaultLayout } from '~/components/Layout';
 function App() {
     return (
         <Router>
-            <div className="container">
+            <div className='container'>
                 <Routes>
                     {' '}
                     {publicRoutes.map((route, index) => {

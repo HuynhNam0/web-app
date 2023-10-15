@@ -3,10 +3,22 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown, faCartShopping, faPhoneVolume, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import React, { useEffect, useState } from 'react';
+import Tippy from '@tippyjs/react/headless';
+import {Wrapper as PopperWrapper} from '~/components/Popper'
+import AccountItem from '../../../Accountitem';
+
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const [searchResult, setSearchResult] = useState([])
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSearchResult([])
+        }, 0);
+    }, []);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -29,14 +41,31 @@ function Header() {
                         <FontAwesomeIcon icon={faCaretDown}/>
                     </div>
                 </div>
+                <Tippy interactive visible={searchResult.length} render={attrs => (
+                   
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            {/* <img src="https://dienmayabc.com/media/product/2250_sharp_sj_x176e_dss_1_org.jpg"/>
+                            <h4 className={cx('search-title')}>Account</h4> */}
+                            <AccountItem />
+                            <AccountItem />
+                            <AccountItem />
+                            <AccountItem/>
+                    </PopperWrapper></div>
+               
+                )}>
                 <div className={cx('inputs-search')}>
                     <div className={cx('inputs')}>
                         <input type="text"></input>
-                    </div>
+                        </div>
+               
+                    {/* <Tippy content="Tìm kiếm" placement='right'> */}
                     <div className={cx('search')}>
                         <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
                     </div>
-                </div>
+                     {/* </Tippy> */}
+                    </div>
+                 </Tippy>
                 <div className={cx('orderHistory')}>
                     <div className={cx('list-orderHistory')}>
                         Lịch sử đơn hàng
