@@ -1,5 +1,14 @@
+import styles from './LogIn.module.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
+
 function LogIn() {
-    return <h1> LogIn </h1>;
+    return (
+        <div className={cx('logIn')}>
+            logIn
+        </div>
+    );
 }
 
 export default LogIn;

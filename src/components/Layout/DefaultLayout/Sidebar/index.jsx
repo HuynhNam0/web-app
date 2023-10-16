@@ -18,7 +18,7 @@ function Sidebar() {
             <ul className={cx('icons')}>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                        <img src={logo}/>
+                        <img src={logo} />
                     </div>
                     <div className={cx('title')}>
                         Tivi
@@ -26,7 +26,7 @@ function Sidebar() {
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                        <img src={logo1}/>
+                        <img src={logo1} />
                     </div>
                     <div className={cx('title')}>
                         Tủ Lạnh
@@ -34,15 +34,15 @@ function Sidebar() {
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                          <img src={logo2}/>
+                        <img src={logo2} />
                     </div>
                     <div className={cx('title')}>
-                         Máy lạnh
+                        Máy lạnh
                     </div>
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                          <img src={logo3}/>
+                        <img src={logo3} />
                     </div>
                     <div className={cx('title')}>
                         Máy giặt
@@ -50,7 +50,7 @@ function Sidebar() {
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                          <img src={logo4}/>
+                        <img src={logo4} />
                     </div>
                     <div className={cx('title')}>
                         Gia dụng
@@ -58,7 +58,7 @@ function Sidebar() {
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                          <img src={logo5}/>
+                        <img src={logo5} />
                     </div>
                     <div className={cx('title')}>
                         Loa
@@ -66,7 +66,7 @@ function Sidebar() {
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                          <img src={logo6}/>
+                        <img src={logo6} />
                     </div>
                     <div className={cx('title')}>
                         Tủ đông
@@ -74,7 +74,7 @@ function Sidebar() {
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                          <img src={logo7}/>
+                        <img src={logo7} />
                     </div>
                     <div className={cx('title')}>
                         Máy lọc không khí
@@ -82,7 +82,7 @@ function Sidebar() {
                 </li>
                 <li className={cx('icon')}>
                     <div className={cx('img')}>
-                          <img src={logo8}/>
+                        <img src={logo8} />
                     </div>
                     <div className={cx('title')}>
                         Văn phòng

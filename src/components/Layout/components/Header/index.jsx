@@ -5,13 +5,17 @@ import { faCaretDown, faCartShopping, faPhoneVolume, faSearch } from '@fortaweso
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import React, { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
-import {Wrapper as PopperWrapper} from '~/components/Popper'
+import { Wrapper as PopperWrapper } from '~/components/Popper'
 import AccountItem from '../../../Accountitem';
+import Cart from "~/components/Cart";
 
+import Menu from '../../../Popper/Menu/index';
 
 const cx = classNames.bind(styles);
 
-function Header() {
+function Header(props) {
+    const { carts } = props;
+    const [isOpenModal, setIsOpenModal] = useState(false);
     const [searchResult, setSearchResult] = useState([])
 
     useEffect(() => {
@@ -30,19 +34,19 @@ function Header() {
                 </div>{' '}
                 <div className={cx('contact')}>
                     <div className={cx('lists-contact')}>
-                         <div className={cx('list-contact')}>
+                        <div className={cx('list-contact')}>
                             Hệ thống cửa hàng
-                         </div>
-                         <div className={cx('list-contact')}>
+                        </div>
+                        <div className={cx('list-contact')}>
                             40 cửa hàng
-                         </div>
+                        </div>
                     </div>
                     <div className={cx('icon-contact')}>
-                        <FontAwesomeIcon icon={faCaretDown}/>
+                        <FontAwesomeIcon icon={faCaretDown} />
                     </div>
                 </div>
-                <Tippy interactive visible={searchResult.length} render={attrs => (
-                   
+                <Tippy interactive render={attrs => (
+
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
                             {/* <img src="https://dienmayabc.com/media/product/2250_sharp_sj_x176e_dss_1_org.jpg"/>
@@ -50,22 +54,22 @@ function Header() {
                             <AccountItem />
                             <AccountItem />
                             <AccountItem />
-                            <AccountItem/>
-                    </PopperWrapper></div>
-               
+                            <AccountItem />
+                        </PopperWrapper></div>
+
                 )}>
-                <div className={cx('inputs-search')}>
-                    <div className={cx('inputs')}>
-                        <input type="text"></input>
+                    <div className={cx('inputs-search')}>
+                        <div className={cx('inputs')}>
+                            <input type="text"></input>
                         </div>
-               
-                    {/* <Tippy content="Tìm kiếm" placement='right'> */}
-                    <div className={cx('search')}>
-                        <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
+
+                        {/* <Tippy content="Tìm kiếm" placement='right'> */}
+                        <div className={cx('search')}>
+                            <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
+                        </div>
+                        {/* </Tippy> */}
                     </div>
-                     {/* </Tippy> */}
-                    </div>
-                 </Tippy>
+                </Tippy>
                 <div className={cx('orderHistory')}>
                     <div className={cx('list-orderHistory')}>
                         Lịch sử đơn hàng
@@ -77,36 +81,40 @@ function Header() {
                     </div>
                     <div className={cx('hotline-phone')}>
                         <div className={cx('hotline')}>
-                          Hotline
+                            Hotline
                         </div>
                         <div className={cx('phone')}>
-                          0335754550
+                            0335754550
                         </div>
                     </div>
                 </div>
-                 <div className={cx('callPhone')}>
+                <div className={cx('callPhone')}>
                     <div className={cx('tellPhone')}>
                         <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                     </div>
-                    <div className={cx('hotline-phone')}>
-                        <div className={cx('hotline')}>
-                           Tài khoảng
-                        </div>
-                        <div className={cx('phone')}>
-                          Hello, khách
-                        </div>
-                    </div>
+                    <Menu />
                 </div>
-                 <div className={cx('callPhone')}>
+                <div className={cx('callPhone')}>
                     <div className={cx('tellPhone')}>
-                        <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
+                        {/* <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon> */}
+                        <button onClick={() => setIsOpenModal(!isOpenModal)}>
+                            {" "}
+                            <FontAwesomeIcon
+                                icon={faCartShopping}
+                                fontSize={20}
+                                color="white"
+                                background="#dc3545"
+                            />{" "}
+                            <span> {carts} </span>{" "}
+                        </button>
+                        {isOpenModal && <Cart />}{" "}
                     </div>
                     <div className={cx('hotline-phone')}>
                         <div className={cx('hotline')}>
-                          Giỏ hàng
+                            Giỏ hàng
                         </div>
                         <div className={cx('phone')}>
-                          Thanh toán
+                            Thanh toán
                         </div>
                     </div>
                 </div>
